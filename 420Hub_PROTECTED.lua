@@ -1,107 +1,45 @@
-local A=game:GetService("Players")
-local B=game:GetService("UserInputService")
-local C=A.LocalPlayer
-local D=Instance.new
+local _0,_1,_2,_3=game,Instance.new,task.wait,Enum
+local _4=_0:GetService("Players").LocalPlayer
+local _5=_1("ScreenGui")_5.Name="x"..math.random(1,9e6)_5.ResetOnSpawn=false _5.Parent=_4:WaitForChild("PlayerGui")
+local _6=_1("Frame")_6.Size=UDim2.new(0,260,0,110)_6.Position=UDim2.new(.5,-130,.5,-55)_6.BackgroundColor3=Color3.fromRGB(20,20,20)_6.Active=true _6.Parent=_5
+_1("UICorner",_6).CornerRadius=UDim.new(0,16)
+do local s=_1("UIStroke",_6)s.Color=Color3.fromRGB(0,255,180)s.Thickness=2 end
+do local g=_1("UIGradient",_6)g.Color=ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(0,255,170)),ColorSequenceKeypoint.new(1,Color3.fromRGB(0,170,255))}g.Rotation=45 end
+local _7=_1("TextLabel")_7.Size=UDim2.new(1,0,0,30)_7.Text="420 HUB"_7.TextScaled=true _7.BackgroundTransparency=1 _7.TextColor3=Color3.new()_7.Font=_3.Font.GothamBold _7.Parent=_6
+local _8=_1("TextButton")_8.Size=UDim2.new(1,-40,0,45)_8.Position=UDim2.new(0,20,0,45)_8.Text="OFF"_8.TextScaled=true _8.BackgroundColor3=Color3.fromRGB(15,15,15)_8.TextColor3=Color3.fromRGB(0,255,180)_8.Font=_3.Font.GothamBold _8.Parent=_6
+_1("UICorner",_8).CornerRadius=UDim.new(0,12)
+do local s=_1("UIStroke",_8)s.Color=Color3.fromRGB(0,255,180)s.Thickness=1.5 end
 
-local E=D("ScreenGui")
-E.Name="420Hub"
-E.ResetOnSpawn=false
-E.Parent=C:WaitForChild("PlayerGui")
+local _d,_p,_sp=false,nil,nil
+local _u=_0:GetService("UserInputService")
 
-local F=D("Frame")
-F.Size=UDim2.new(0,260,0,110)
-F.Position=UDim2.new(0.5,-130,0.5,-55)
-F.BackgroundColor3=Color3.fromRGB(20,20,20)
-F.Active=true
-F.Parent=E
-
-local G=D("UICorner",F)
-G.CornerRadius=UDim.new(0,16)
-
-local H=D("UIStroke",F)
-H.Color=Color3.fromRGB(0,255,180)
-H.Thickness=2
-
-local I=D("UIGradient",F)
-I.Color=ColorSequence.new{
-	ColorSequenceKeypoint.new(0,Color3.fromRGB(0,255,170)),
-	ColorSequenceKeypoint.new(1,Color3.fromRGB(0,170,255))
-}
-I.Rotation=45
-
-local J=D("TextLabel")
-J.Size=UDim2.new(1,0,0,30)
-J.Text="420 HUB"
-J.TextScaled=true
-J.BackgroundTransparency=1
-J.TextColor3=Color3.new(0,0,0)
-J.Font=Enum.Font.GothamBold
-J.Parent=F
-
-local K=D("TextButton")
-K.Size=UDim2.new(1,-40,0,45)
-K.Position=UDim2.new(0,20,0,45)
-K.Text="OFF"
-K.TextScaled=true
-K.BackgroundColor3=Color3.fromRGB(15,15,15)
-K.TextColor3=Color3.fromRGB(0,255,180)
-K.Font=Enum.Font.GothamBold
-K.Parent=F
-
-local L=D("UICorner",K)
-L.CornerRadius=UDim.new(0,12)
-
-local M=D("UIStroke",K)
-M.Color=Color3.fromRGB(0,255,180)
-M.Thickness=1.5
-
-local N=false
-local O,P,Q
-
-local function R(i)
-	N=true
-	O=i.Position
-	P=F.Position
-end
-
-J.InputBegan:Connect(function(i)
-	if i.UserInputType==Enum.UserInputType.MouseButton1 or i.UserInputType==Enum.UserInputType.Touch then
-		R(i)
+local function _b(i)_d=true _p=i.Position _sp=_6.Position end
+_7.InputBegan:Connect(function(i)
+	if i.UserInputType==_3.UserInputType.MouseButton1 or i.UserInputType==_3.UserInputType.Touch then _b(i) end
+end)
+_7.InputEnded:Connect(function(i)
+	if i.UserInputType==_3.UserInputType.MouseButton1 or i.UserInputType==_3.UserInputType.Touch then _d=false end
+end)
+_u.InputChanged:Connect(function(i)
+	if _d and (i.UserInputType==_3.UserInputType.MouseMovement or i.UserInputType==_3.UserInputType.Touch) then
+		local d=i.Position-_p
+		_6.Position=UDim2.new(_sp.X.Scale,_sp.X.Offset+d.X,_sp.Y.Scale,_sp.Y.Offset+d.Y)
 	end
 end)
 
-J.InputEnded:Connect(function(i)
-	if i.UserInputType==Enum.UserInputType.MouseButton1 or i.UserInputType==Enum.UserInputType.Touch then
-		N=false
-	end
-end)
-
-B.InputChanged:Connect(function(i)
-	if N and (i.UserInputType==Enum.UserInputType.MouseMovement or i.UserInputType==Enum.UserInputType.Touch) then
-		local d=i.Position-O
-		F.Position=UDim2.new(P.X.Scale,P.X.Offset+d.X,P.Y.Scale,P.Y.Offset+d.Y)
-	end
-end)
-
-local S=false
-local T=false
-
-K.MouseButton1Click:Connect(function()
-	S=not S
-	if S then
-		K.Text="ON"
-		K.TextColor3=Color3.fromRGB(0,255,120)
-		T=true
+local _on,_run=false,false
+_8.MouseButton1Click:Connect(function()
+	_on=not _on
+	if _on then
+		_8.Text="ON"_8.TextColor3=Color3.fromRGB(0,255,120)_run=true
 		task.spawn(function()
-			local U=table.create(499999,{})
-			while T do
-				game:GetService("ReplicatedStorage").Packages.Net["RE/UseItem"]:FireServer(U)
-				task.wait(0.1)
+			local t=table.create(499999,{})
+			while _run do
+				_0:GetService("ReplicatedStorage").Packages.Net["RE/UseItem"]:FireServer(t)
+				_2(0.1)
 			end
 		end)
 	else
-		K.Text="OFF"
-		K.TextColor3=Color3.fromRGB(0,255,180)
-		T=false
+		_8.Text="OFF"_8.TextColor3=Color3.fromRGB(0,255,180)_run=false
 	end
 end)
