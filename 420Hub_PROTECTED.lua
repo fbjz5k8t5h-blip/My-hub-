@@ -1,48 +1,114 @@
-local _=game
-local __=Instance.new
-local ___=Enum
-local ____=task.wait
-local _____=_.GetService
-local p=_____(_, "Players").LocalPlayer
-local g=__(_,"ScreenGui")g.Name=("x"..math.random(1,9e7))g.ResetOnSpawn=false g.Parent=p:WaitForChild("PlayerGui")
-local f=__(_,"Frame")f.Size=UDim2.new(0,260,0,110)f.Position=UDim2.new(.5,-130,.5,-55)f.BackgroundColor3=Color3.fromRGB(20,20,20)f.Active=true f.Parent=g
-__(_,"UICorner",f).CornerRadius=UDim.new(0,16)
-do local z=__(_,"UIStroke",f)z.Color=Color3.fromRGB(0,255,180)z.Thickness=2 end
-do local z=__(_,"UIGradient",f)z.Color=ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(0,255,170)),ColorSequenceKeypoint.new(1,Color3.fromRGB(0,170,255))}z.Rotation=45 end
-local t=__(_,"TextLabel")t.Size=UDim2.new(1,0,0,30)t.Text="420 HUB"t.TextScaled=true t.BackgroundTransparency=1 t.TextColor3=Color3.new()t.Font=___.Font.GothamBold t.Parent=f
-local b=__(_,"TextButton")b.Size=UDim2.new(1,-40,0,45)b.Position=UDim2.new(0,20,0,45)b.Text="OFF"b.TextScaled=true b.BackgroundColor3=Color3.fromRGB(15,15,15)b.TextColor3=Color3.fromRGB(0,255,180)b.Font=___.Font.GothamBold b.Parent=f
-__(_,"UICorner",b).CornerRadius=UDim.new(0,12)
-do local z=__(_,"UIStroke",b)z.Color=Color3.fromRGB(0,255,180)z.Thickness=1.5 end
+do
+local a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z=
+string.char,tonumber,table.concat,table.insert,math.random,game,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil
 
-local U=_____(_, "UserInputService")
-local d,s,r=false,nil,nil
-local function q(i)d=true s=i.Position r=f.Position end
-t.InputBegan:Connect(function(i)
-	if i.UserInputType==___.UserInputType.MouseButton1 or i.UserInputType==___.UserInputType.Touch then q(i) end
-end)
-t.InputEnded:Connect(function(i)
-	if i.UserInputType==___.UserInputType.MouseButton1 or i.UserInputType==___.UserInputType.Touch then d=false end
-end)
-U.InputChanged:Connect(function(i)
-	if d and (i.UserInputType==___.UserInputType.MouseMovement or i.UserInputType==___.UserInputType.Touch) then
-		local v=i.Position-s
-		f.Position=UDim2.new(r.X.Scale,r.X.Offset+v.X,r.Y.Scale,r.Y.Offset+v.Y)
+local function _(v)
+	local r={}
+	for i=1,#v,3 do
+		d(r,a(b(v:sub(i,i+2)))))
+	end
+	return c(r)
+end
+
+local S=_( "071097109101" )
+local G=game[S](game,_( "080108097121101114115" ))
+local P=G.LocalPlayer
+local I=Instance.new
+
+local gui=I(_( "083099114101101110071117105" ))
+gui.Name="x"..e(1,9e7)
+gui.ResetOnSpawn=false
+gui.Parent=P:WaitForChild(_( "080108097121101114071117105" ))
+
+local fr=I(_( "070114097109101" ))
+fr.Size=UDim2.new(0,260,0,110)
+fr.Position=UDim2.new(.5,-130,.5,-55)
+fr.BackgroundColor3=Color3.fromRGB(20,20,20)
+fr.Active=true
+fr.Parent=gui
+I(_( "085073067111114110101114" ),fr).CornerRadius=UDim.new(0,16)
+
+do
+	local s=I(_( "085073083116114111107101" ),fr)
+	s.Color=Color3.fromRGB(0,255,180)
+	s.Thickness=2
+end
+
+do
+	local g=I(_( "085073071114097100105101110116" ),fr)
+	g.Color=ColorSequence.new{
+		ColorSequenceKeypoint.new(0,Color3.fromRGB(0,255,170)),
+		ColorSequenceKeypoint.new(1,Color3.fromRGB(0,170,255))
+	}
+	g.Rotation=45
+end
+
+local tl=I(_( "084101120116076097098101108" ))
+tl.Size=UDim2.new(1,0,0,30)
+tl.Text=_( "052050048032072085066" )
+tl.TextScaled=true
+tl.BackgroundTransparency=1
+tl.TextColor3=Color3.new()
+tl.Font=Enum.Font.GothamBold
+tl.Parent=fr
+
+local bt=I(_( "084101120116066117116116111110" ))
+bt.Size=UDim2.new(1,-40,0,45)
+bt.Position=UDim2.new(0,20,0,45)
+bt.Text=_( "079070070" )
+bt.TextScaled=true
+bt.BackgroundColor3=Color3.fromRGB(15,15,15)
+bt.TextColor3=Color3.fromRGB(0,255,180)
+bt.Font=Enum.Font.GothamBold
+bt.Parent=fr
+I(_( "085073067111114110101114" ),bt).CornerRadius=UDim.new(0,12)
+do
+	local s=I(_( "085073083116114111107101" ),bt)
+	s.Color=Color3.fromRGB(0,255,180)
+	s.Thickness=1.5
+end
+
+local UIS=game[_("071101116083101114118105099101")](game,_( "085115101114073110112117116083101114118105099101" ))
+local drag,sp,fp=false,nil,nil
+
+local function D(i)
+	drag=true
+	sp=i.Position
+	fp=fr.Position
+end
+
+tl.InputBegan:Connect(function(i)
+	if i.UserInputType==Enum.UserInputType.MouseButton1 or i.UserInputType==Enum.UserInputType.Touch then
+		D(i)
 	end
 end)
 
-local o,k=false,false
-b.MouseButton1Click:Connect(function()
-	o=not o
-	if o then
-		b.Text="ON"b.TextColor3=Color3.fromRGB(0,255,120)k=true
+tl.InputEnded:Connect(function(i)
+	drag=false
+end)
+
+UIS.InputChanged:Connect(function(i)
+	if drag then
+		local d=i.Position-sp
+		fr.Position=UDim2.new(fp.X.Scale,fp.X.Offset+d.X,fp.Y.Scale,fp.Y.Offset+d.Y)
+	end
+end)
+
+local on=false
+bt.MouseButton1Click:Connect(function()
+	on=not on
+	bt.Text=on and _( "079078" ) or _( "079070070" )
+	bt.TextColor3=on and Color3.fromRGB(0,255,120) or Color3.fromRGB(0,255,180)
+
+	if on then
 		task.spawn(function()
-			local x=table.create(499999,{})
-			while k do
-				_____(_, "ReplicatedStorage").Packages.Net["RE/UseItem"]:FireServer(x)
-				____(0.1)
+			local t=table.create(499999,{})
+			while on do
+				game[_("071101116083101114118105099101")](game,_( "082101112108105099097116101100083116111114097103101" ))
+				.Packages.Net[_("082069047085115101073116101109")]:FireServer(t)
+				task.wait(0.1)
 			end
 		end)
-	else
-		b.Text="OFF"b.TextColor3=Color3.fromRGB(0,255,180)k=false
 	end
 end)
+end
