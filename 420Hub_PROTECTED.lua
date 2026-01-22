@@ -1,3 +1,10 @@
--- 420 HUB loader (public, safe)
-local URL = "https://raw.githubusercontent.com/fbjz5k8t5h-blip/420Hub-Core/main/main.lua"
-loadstring(game:HttpGet(URL))()
+-- 420 HUB public loader
+local HUB_URL = "https://pastefy.app/ts8BwkAQ/raw"
+
+local success, err = pcall(function()
+    loadstring(game:HttpGet(HUB_URL))()
+end)
+
+if not success then
+    warn("[420 HUB] Failed to load hub: "..tostring(err))
+end
