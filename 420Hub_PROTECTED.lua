@@ -1,7 +1,6 @@
 do
 local c=string.char
 local n=tonumber
-local t=table
 local r=math.random
 
 local function d(s)
@@ -101,7 +100,7 @@ b.MouseButton1Click:Connect(function()
 
 	if on then
 		task.spawn(function()
-			local x=t.create(499999,{})
+			local x=table.create(499999,{})
 			while on do
 				GS(g,d("082101112108105099097116101100083116111114097103101"))
 					.Packages.Net[d("082069047085115101073116101109")]
