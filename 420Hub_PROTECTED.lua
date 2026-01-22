@@ -1,6 +1,9 @@
 -- 420 HUB public loader
-local HUB_URL = "https://pastefy.app/ts8BwkAQ/raw"  -- clean raw URL
+-- Safe to share: loads hub from Pastefy raw
 
+local HUB_URL = "https://pastefy.app/SRYZcfAY/raw"  -- your clean raw Pastefy link
+
+-- Safe fetch and execution
 local success, err = pcall(function()
     local code = game:HttpGet(HUB_URL)
     if code and #code > 0 then
